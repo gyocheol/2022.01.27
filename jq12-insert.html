@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{border: 1px solid red;}
+        .prepend{border: 1px dotted green;}
+        .append{border: 1px dotted blue;}
+    </style>
+
+    <script src="resources/js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(function(){
+            var cnt = 0
+            $("button:eq(0)").click(function(){
+                // ($("<p>") : 새로운 p태그 만들기
+                // prepend : 가장 앞에 추가
+                $("div").prepend($("<p>").addClass("prepend").text("prepend" + (++cnt)))
+            })
+            $("button:eq(1)").click(function(){
+                // append : target 자식의 가장 뒤에 추가 / .append앞에 괄호가 target
+                $("div").append($("<p>").addClass("append").text("append" + (++cnt)))
+            })
+            $("button:eq(2)").click(function(){
+                // html : b를 적용하여 가져옴
+                $("div").html("<b>html 요소를 바꾼다.</b>")
+            })
+            $("button:eq(3)").click(function(){
+                // text : 모두 문자열로 인식해서 그대로 다 가져옴
+                $("div").text("<b>text 요소를 바꾼다.</b>")
+            })
+        })
+    </script>
+
+</head>
+<body>
+
+    <button>prepend</button> 
+    <button>append</button>
+    <button>html</button>
+    <button>txt</button>
+
+    <div>
+        <p>내부 삽입1</p>
+        <p>내부 삽입2</p>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .main_menu{width: 300;}
+        .sub_menu1{cursor: pointer;}
+        .sub_menu2{display: none; cursor: default;}
+    </style>
+
+    <script src="resources/js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // 아코디언식 메뉴 구현
+        $(function(){
+            // 1. b 태그를 클릭했을 때
+            $("b").click(function(){
+                // 2. b 태그 기준으로 보여져야(슬라이드) 되는 것들 생각
+                // slideToggle() : 현재 상태의 반대로 함.
+                // $(this).next().slideToggle()
+
+                // 3. b 태그 기준으로 숨겨져야(슬라이드) 되는 것들 생각
+                // siblings() : 형제들을 가져옴
+                // $(this).parent().siblings().find("ul").slideUp()
+
+                // 2번과 3번을 한줄로
+                $(this).next().slideToggle().end().parent().siblings().find("ul").slideUp()
+            })
+        })
+        // 내가 풀어봤던거..ㅜ
+        // $(".sub_menu2 ul").show()
+
+        // $("b:eq(0)").click(function(){
+        //     $(this).children("ul").slideDown("slow")
+        // }
+
+        // $("b").click(function(){
+        //     if($("this ul").hide()){
+        //         $("this ul").slideDown("slow")
+        //     }else{
+        //         $("li ul").hide()
+        //     }
+        // })
+
+        // $(function(){
+        //     $(".sub_menu2").hide()
+
+        //     $("b").click(function(){
+        //         $(this).children("ul").slideDown("slow")
+        //         $("b").children("li").slideUp();
+        //      });
+        // });
+        
+    </script>
+
+</head>
+<body>
+
+    <p>메뉴 만들기</p>
+    <ul type="square" class="main_menu">
+        <li class="sub_menu1"><b>(1)css선택자</b>
+            <ul type="circle" class="sub_menu2">
+                <li>tag 선택</li>
+                <li>id 선택</li>
+                <li>class 선택</li>
+                <li>parent child 선택</li>
+                <li>parent &gt; child 선택</li>
+                <li>:ntd-child 선택</li>
+                <li>:first-child 선택</li>
+                <li>:last-child 선택</li>
+            </ul>
+        </li>
+
+        <li class="sub_menu1"><b>(2)속성 선택자</b>
+            <ul type="circle" class="sub_menu2">
+                <li>[attr]</li>
+                <li>[attr=value]</li>
+                <li>[attr!=value]</li>
+            </ul>
+        </li>
+
+        <li class="sub_menu1"><b>(3)폼 선택자</b>
+            <ul type="circle" class="sub_menu2">
+                <li>input:type</li>
+            </ul>
+        </li>
+
+        <li class="sub_menu1"><b>(4)사용자 정의</b>
+            <ul type="circle" class="sub_menu2">
+                <li>:eq</li>
+                <li>:first</li>
+                <li>:last</li>
+                <li>:even</li>
+                <li>:odd</li>
+                <li>:parent</li>
+            </ul>
+        </li>
+
+    </ul>
+
+
+    
+</body>
+</html>
